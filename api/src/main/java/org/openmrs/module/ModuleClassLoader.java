@@ -396,7 +396,7 @@ public class ModuleClassLoader extends URLClassLoader {
 		
 		for (String awareOfPackage : module.getAwareOfModules()) {
 			Module awareOfModule = ModuleFactory.getModuleByPackage(awareOfPackage);
-			if (ModuleFactory.isModuleStarted(awareOfModule)) {
+			if (ModuleFactory.isModuleStartedOrWillStart(awareOfModule)) {
 				publicImportsMap.put(awareOfModule.getModuleId(), awareOfModule);
 			}
 		}

@@ -1170,7 +1170,17 @@ public class ModuleFactory {
 	public static boolean isModuleStarted(String moduleId) {
 		return getStartedModulesMap().containsKey(moduleId);
 	}
-	
+
+	/**
+	 * Checks whether the given module is activated or will start
+	 *
+	 * @param mod Module to check
+	 * @return true if the module is started or will start, false otherwise
+	 */
+	public static boolean isModuleStartedOrWillStart(Module mod) {
+		return getStartedModulesMap().containsValue(mod) || getLoadedModulesMap().containsValue(mod);
+	}
+
 	/**
 	 * Get a module's classloader
 	 * 
